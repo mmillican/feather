@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-
 using ServiceStack.Text;
 using Telerik.Sitefinity.ContentLocations;
 using Telerik.Sitefinity.Data;
@@ -440,6 +439,7 @@ namespace Telerik.Sitefinity.Frontend.Mvc.Models
             query = this.UpdateExpression(query, itemsToSkip, take, ref totalCount);
 
             var queryResult = this.FetchItems(query);
+            queryResult.SetRelatedDataSourceContext();
 
             foreach (var item in queryResult)
             {
